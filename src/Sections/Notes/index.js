@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
 import { loadAllNotes, loadCurrentNote } from '../redux/actions'
 import notesSelector from '../redux/selectors'
 import NoteCell from './../../Components/NoteCell'

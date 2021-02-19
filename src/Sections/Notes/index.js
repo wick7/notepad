@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from "react-redux"
+import { loadAllNotes, loadCurrentNote } from '../redux/actions'
+import notesSelector from '../redux/selectors'
 import NoteCell from './../../Components/NoteCell'
 import './style.scss'
 
 
-const Notes = ({ data }) => {
+const Notes = ({ allNotes, loadAllNotes, loadCurrentNote }) => {
+
+    useEffect(() => {
+        loadAllNotes()
+    }, [])
+
     return (
         <div className="notes">
-            {data && data.map((v, i) => {
-                return (<NoteCell key={v.key + i} text={v.text} />)
+            {allNotes && allNotes.map((v, i) => {
+                return (<NoteCell key={v.id + i} data={v} loadCurrentNote={loadCurrentNote} />)
             })}
         </div>
     )
 }
 
-export default Notes
+const mapStateToProps = state => ({
+    allNotes: notesSelector.getAllNotes(state)
+})
+
+const mapDispatchToProps = {
+    loadAllNotes,
+    loadCurrentNote
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Notes);

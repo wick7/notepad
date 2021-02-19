@@ -15,7 +15,7 @@ const App = () => {
     <div className="wrapper">
       <Header />
       <div className="notes-wrapper">
-        <Notes data={notes} />
+        <Notes />
         <SingleNote />
       </div>
     </div>

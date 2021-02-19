@@ -1,14 +1,24 @@
 import React from 'react'
+import { connect } from "react-redux"
+import notesSelector from './../redux/selectors'
 import './style.scss'
 
-const SingleNote = () => {
+const SingleNote = ({ currentNote }) => {
     return (
         <div className="single-note">
             <div className="single-note-content">
-                Single Note First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height. First you need to tell the body not to use the scroll bars by setting overflow:hidden; .Then you need to move .main down a bit 50px as this is the headers height and tell it to scroll overflow-y: scroll; .However .main needs a height to be set and for that you need some Jquery code to calculate how much height is available on the window minus the 50px for the headers height.
+                {currentNote.text}
             </div>
         </div>
     )
 }
 
-export default SingleNote
+const mapStateToProps = state => ({
+    allNotes: notesSelector.getAllNotes(state),
+    currentNote: notesSelector.getCurrentNote(state)
+})
+
+// const mapDispatchToProps = {
+//     loadAllNotes,
+// }
+export default connect(mapStateToProps)(SingleNote);

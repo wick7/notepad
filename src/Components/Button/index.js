@@ -1,10 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { loadNotePanelView } from './../../Sections/redux/actions'
 import './style.scss'
 
-const Button = ({ data }) => {
+const Button = ({ data, loadNotePanelView }) => {
+
     return (
-        <div className="button">{data.content}</div>
+        <div className="button" onClick={() => loadNotePanelView(data.type)}  >{data.content}</div>
     )
 }
 
-export default Button
+const mapDispatchToProps = {
+    loadNotePanelView
+}
+export default connect(undefined, mapDispatchToProps)(Button);

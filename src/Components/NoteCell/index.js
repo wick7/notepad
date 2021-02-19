@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { loadNotePanelView } from './../../Sections/redux/actions'
 import './style.scss'
 
-const NoteCell = ({ data, loadCurrentNote }) => {
+const NoteCell = ({ data, loadCurrentNote, loadNotePanelView }) => {
 
     const handleSelection = (id) => {
+        loadNotePanelView('CURRENT_NOTE')
         loadCurrentNote(id)
     }
 
@@ -12,4 +15,7 @@ const NoteCell = ({ data, loadCurrentNote }) => {
     )
 }
 
-export default NoteCell;
+const mapDispatchToProps = {
+    loadNotePanelView
+}
+export default connect(undefined, mapDispatchToProps)(NoteCell);

@@ -1,14 +1,15 @@
-import { SET_ALL_NOTES, SET_CURRENT_NOTE } from './actions'
+import { SET_ALL_NOTES, SET_CURRENT_NOTE, SET_NOTE_PANEL_VIEW } from './actions'
 
 const initialState = {
     allNotes: [],
     currentNote: {
         id: null,
         user_id: null,
-        text: 'My Empty Note',
+        text: 'No notes. Please create a note.',
         created_at: null,
         updated_at: null
-    }
+    },
+    notePanelView: 'CURRENT_NOTE'
 }
 
 export default (state = initialState, action) => {
@@ -22,6 +23,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 currentNote: action.currentNote
+            }
+        case SET_NOTE_PANEL_VIEW:
+            return {
+                ...state,
+                notePanelView: action.notePanelView
             }
         default:
             { return state }

@@ -7,10 +7,3 @@ const reducers = {
 }
 
 export default combineReducers({ ...reducers })
-
-// const createRootReducer = () =>
-//     combineReducers({
-//         ...reducers,
-//     })
-
-// export default createRootReducer

@@ -18,7 +18,4 @@ const mapStateToProps = state => ({
     currentNote: notesSelector.getCurrentNote(state)
 })
 
-// const mapDispatchToProps = {
-//     loadAllNotes,
-// }
 export default connect(mapStateToProps)(SingleNote);

@@ -1,4 +1,3 @@
-import data from '../../utils/temp_data.js'
 import axios from 'axios'
 
 export const SET_ALL_NOTES = 'SET_ALL_NOTES'

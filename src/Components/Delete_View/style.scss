@@ -1,0 +1,20 @@
+.close-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button-wrapper {
+    display: block;
+    height: auto;
+    margin-top: 15px;
+}
+
+.action-button {
+    display: inline;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border: 1px solid white;
+    margin-left: 10px;
+}

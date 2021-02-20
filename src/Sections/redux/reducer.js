@@ -1,4 +1,4 @@
-import { SET_ALL_NOTES, SET_CURRENT_NOTE, SET_NOTE_PANEL_VIEW } from './actions'
+import { SET_ALL_NOTES, SET_CURRENT_NOTE, SET_NOTE_PANEL_VIEW, CLEAR_ALL_NOTES } from './actions'
 
 const initialState = {
     allNotes: [],
@@ -14,6 +14,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case CLEAR_ALL_NOTES:
+            return { ...initialState }
         case SET_ALL_NOTES:
             return {
                 ...state,

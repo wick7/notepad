@@ -6,7 +6,7 @@ import './style.scss'
 const Button = ({ data, loadNotePanelView }) => {
 
     return (
-        <div className="button" onClick={() => loadNotePanelView(data.type)}  >{data.content}</div>
+        <button className="button" onClick={() => loadNotePanelView(data.type)} disabled={false}>{data.content}</button>
     )
 }
 

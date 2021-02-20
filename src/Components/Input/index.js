@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import './style.scss'
 
-const Input = () => {
+const Input = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistingNote }) => {
 
     const [text, setText] = useState()
 
@@ -8,16 +9,31 @@ const Input = () => {
         setText(e.target.value)
     }
 
-    return (
-        <textarea
-            className="input"
-            rows="30"
-            cols="80"
-            id="TITLE"
-            onChange={(e) => handleText(e)}>
+    useEffect(() => {
+        if (notePanelView === 'EDIT') {
+            setText(currentNote.text)
+        } else {
+            setText('')
+        }
+    }, [notePanelView])
 
-        </textarea>
+
+    return (
+        <div>
+            <textarea
+                className="input"
+                rows="20"
+                cols="80"
+                id="TITLE"
+                onChange={(e) => handleText(e)}
+                value={text}
+            ></textarea>
+            <div className="button-wrapper">
+                <div className="action-button" onClick={() => saveNewOrExistingNote(text)}>Save</div>
+                <div className="action-button" onClick={() => loadNotePanelView('CURRENT_NOTE')}>Cancel</div>
+            </div>
+        </div>
     )
 }
 
-export default Input
+export default Input;

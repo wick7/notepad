@@ -15,7 +15,7 @@ const Notes = ({ allNotes, loadAllNotes, loadCurrentNote }) => {
     return (
         <div className="notes">
             {allNotes && allNotes.map((v, i) => {
-                return (<NoteCell key={v.id + i} data={v} loadCurrentNote={loadCurrentNote} />)
+                return (<NoteCell key={v.id + Math.random(3)} data={v} loadCurrentNote={loadCurrentNote} />)
             })}
         </div>
     )

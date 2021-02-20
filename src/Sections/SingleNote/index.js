@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import notesSelector from './../redux/selectors'
-import { loadNotePanelView, saveNewOrExistingNote } from './../../Sections/redux/actions'
+import { loadNotePanelView, saveNewOrExistingNote, deleteNote } from './../../Sections/redux/actions'
 import Input from './../../Components/Input'
+import Delete_View from '../../Components/Delete_View'
 import './style.scss'
 
-const SingleNote = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistingNote }) => {
+const SingleNote = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistingNote, deleteNote }) => {
 
     const currentNotePanelView = () => {
         switch (notePanelView) {
@@ -24,7 +25,11 @@ const SingleNote = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrEx
                     saveNewOrExistingNote={saveNewOrExistingNote}
                 />
             case 'DELETE':
-                return <h1>Delete Modal Here</h1>
+                return <Delete_View
+                    currentNote={currentNote}
+                    loadNotePanelView={loadNotePanelView}
+                    deleteNote={deleteNote}
+                />
             case 'CURRENT_NOTE':
                 return currentNote.text
             default:
@@ -48,7 +53,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     loadNotePanelView,
-    saveNewOrExistingNote
+    saveNewOrExistingNote,
+    deleteNote
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleNote);

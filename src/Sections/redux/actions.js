@@ -54,7 +54,6 @@ export const loadCurrentNote = (id) => async (dispatch) => {
 }
 
 export const loadNotePanelView = (type) => (dispatch) => {
-    console.log(type)
     dispatch(setNotePanelView(type))
 }
 
@@ -76,6 +75,21 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
         }
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())
+    }
+    catch (error) {
+        console.log(error)
+        console.log('Error')
+    }
+}
+
+export const deleteNote = (id) => async (dispatch) => {
+
+    try {
+        const deletedNote = await axios.delete(`http://localhost:3001/api/delete/${id}`)
+
+        dispatch(clearAllNotes())
+        dispatch(loadAllNotes())
+        console.log(deletedNote.data.message)
     }
     catch (error) {
         console.log(error)

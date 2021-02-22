@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { loadNotePanelView } from './../../Sections/redux/actions'
+import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 
 const NoteCell = ({ data, loadCurrentNote, loadNotePanelView }) => {
 
     const handleSelection = (id) => {
-        loadNotePanelView('CURRENT_NOTE')
+        loadNotePanelView(TYPE_INFO.CURRENT_NOTE)
         loadCurrentNote(id)
     }
 

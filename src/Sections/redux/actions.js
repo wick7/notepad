@@ -1,5 +1,6 @@
 import axios from 'axios'
 import notification from './../../utils/notification.js'
+import TYPE_INFO from '../../utils/type_info.js'
 
 export const SET_ALL_NOTES = 'SET_ALL_NOTES'
 export const SET_CURRENT_NOTE = 'SET_CURRENT_NOTE'
@@ -38,7 +39,7 @@ export const loadAllNotes = () => async (dispatch) => {
     }
     catch (error) {
         console.log(error)
-        notification('ERROR', 'Something went wrong. Failed to load data.')
+        notification(TYPE_INFO.ERROR, 'Something went wrong. Failed to load data.')
     }
 }
 
@@ -50,7 +51,7 @@ export const loadCurrentNote = (id) => async (dispatch) => {
     }
     catch (error) {
         console.log(error)
-        console.log('Error')
+        notification(TYPE_INFO.ERROR, 'Something went wrong. Failed to load data.')
     }
 }
 
@@ -71,18 +72,17 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
 
         if (newNoteOrExisting === 'CREATE') {
             await axios.post(newNote, { text: text })
-            notification('SUCCESS', 'New Note Created!')
+            notification(TYPE_INFO.SUCCESS, 'New Note Created!')
         } else {
             await axios.put(existingNote, { text: text })
-            notification('SUCCESS', 'Note Updated!')
+            notification(TYPE_INFO.SUCCESS, 'Note Updated!')
         }
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())
     }
     catch (error) {
         console.log(error)
-        console.log('Error')
-        notification('ERROR', 'Note not updated or created. Please try again.')
+        notification(TYPE_INFO.ERROR, 'An Error occurred. Please refresh and try again.')
     }
 }
 
@@ -93,12 +93,10 @@ export const deleteNote = (id) => async (dispatch) => {
 
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())
-        console.log(deletedNote.data.message)
-        notification('SUCCESS', deletedNote.data.message)
+        notification(TYPE_INFO.SUCCESS, deletedNote.data.message)
     }
     catch (error) {
         console.log(error)
-        console.log('Error')
-        notification('SUCCESS', 'Something went wrong. Please try again')
+        notification(TYPE_INFO.ERROR, 'Something went wrong. Please refresh and try again')
     }
 }

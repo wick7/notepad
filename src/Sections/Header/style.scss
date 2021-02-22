@@ -1,10 +1,10 @@
 .header {
     height: auto;
     width: auto;
-    border-top: 1px solid white;
-    border-right: 1px solid white;
-    border-left: 1px solid white;
-    border-width: thin;
-    padding: 25px;
+    background: rgb(54, 54, 54);
+    background: linear-gradient(0deg, rgba(54, 54, 54, 1) 8%, rgba(58, 58, 58, 1) 48%, rgba(64, 64, 64, 1) 95%);
+    border-bottom: 1px solid black;
+    padding: 10px;
     z-index: 200;
+    flex-shrink: 0;
 }

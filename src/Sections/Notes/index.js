@@ -6,7 +6,7 @@ import NoteCell from './../../Components/NoteCell'
 import './style.scss'
 
 
-const Notes = ({ allNotes, loadAllNotes, loadCurrentNote }) => {
+const Notes = ({ allNotes, loadAllNotes, loadCurrentNote, currentNote }) => {
 
     useEffect(() => {
         loadAllNotes()
@@ -15,14 +15,15 @@ const Notes = ({ allNotes, loadAllNotes, loadCurrentNote }) => {
     return (
         <div className="notes">
             {allNotes && allNotes.map((v, i) => {
-                return (<NoteCell key={v.id + Math.random(3)} data={v} loadCurrentNote={loadCurrentNote} />)
+                return (<NoteCell key={v.id + Math.random(3)} data={v} currentNote={currentNote} loadCurrentNote={loadCurrentNote} />)
             })}
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    allNotes: notesSelector.getAllNotes(state)
+    allNotes: notesSelector.getAllNotes(state),
+    currentNote: notesSelector.getCurrentNote(state)
 })
 
 const mapDispatchToProps = {

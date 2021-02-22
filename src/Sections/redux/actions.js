@@ -1,4 +1,5 @@
 import axios from 'axios'
+import notification from './../../utils/notification.js'
 
 export const SET_ALL_NOTES = 'SET_ALL_NOTES'
 export const SET_CURRENT_NOTE = 'SET_CURRENT_NOTE'
@@ -37,7 +38,7 @@ export const loadAllNotes = () => async (dispatch) => {
     }
     catch (error) {
         console.log(error)
-        console.log('Error')
+        notification('ERROR', 'Something went wrong. Failed to load data.')
     }
 }
 
@@ -70,8 +71,10 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
 
         if (newNoteOrExisting === 'CREATE') {
             await axios.post(newNote, { text: text })
+            notification('SUCCESS', 'New Note Created!')
         } else {
             await axios.put(existingNote, { text: text })
+            notification('SUCCESS', 'Note Updated!')
         }
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())
@@ -79,6 +82,7 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
     catch (error) {
         console.log(error)
         console.log('Error')
+        notification('ERROR', 'Note not updated or created. Please try again.')
     }
 }
 
@@ -90,9 +94,11 @@ export const deleteNote = (id) => async (dispatch) => {
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())
         console.log(deletedNote.data.message)
+        notification('SUCCESS', deletedNote.data.message)
     }
     catch (error) {
         console.log(error)
         console.log('Error')
+        notification('SUCCESS', 'Something went wrong. Please try again')
     }
 }

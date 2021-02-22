@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import notification from './../../utils/notification.js'
 import './style.scss'
 
 const Input = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistingNote }) => {
@@ -17,6 +18,13 @@ const Input = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistin
         }
     }, [notePanelView])
 
+    const handleSubmit = () => {
+        if (text != '') {
+            saveNewOrExistingNote(text)
+        } else {
+            notification('ERROR', 'Blank notes can not be saved.')
+        }
+    }
 
     return (
         <div>
@@ -29,7 +37,7 @@ const Input = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistin
                 value={text}
             ></textarea>
             <div className="button-wrapper">
-                <div className="action-button" onClick={() => saveNewOrExistingNote(text)}>Save</div>
+                <div className="action-button" onClick={() => handleSubmit()}>Save</div>
                 <div className="action-button" onClick={() => loadNotePanelView('CURRENT_NOTE')}>Cancel</div>
             </div>
         </div>

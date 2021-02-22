@@ -1,19 +1,21 @@
-const button_data = [
+import TYPE_INFO from './../utils/type_info.js'
+
+const BUTTONS_DATA = [
     {
         key: 'create',
-        type: 'CREATE',
+        type: TYPE_INFO.CREATE,
         content: 'New Note',
     },
     {
         key: 'edit',
-        type: 'EDIT',
+        type: TYPE_INFO.EDIT,
         content: 'Edit Note',
     },
     {
         key: 'delete',
-        type: 'DELETE',
+        type: TYPE_INFO.DELETE,
         content: 'Delete Note',
     },
 ]
 
-export default button_data;
+export default BUTTONS_DATA;

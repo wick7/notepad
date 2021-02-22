@@ -1,17 +1,21 @@
 import React from 'react'
-import Button from './../../Components/Button'
-import buttonData from './../../utils/buttons_data.js'
+import ActionButton from '../../Components/Buttons/ActionButton'
+import BUTTONS_DATA from './../../utils/buttons_data.js'
+import { connect } from 'react-redux'
+import { loadNotePanelView } from '../../Sections/redux/actions'
 import './style.scss'
 
-const Header = () => {
+const Header = ({ loadNotePanelView }) => {
     return (
         <div className="header">
-            {buttonData.map((v, i) => {
-                return <Button key={v.key} data={v} />
+            {BUTTONS_DATA.map((v, i) => {
+                return <ActionButton key={v.key} data={v} loadNotePanelView={loadNotePanelView} />
             })}
         </div>
     )
 }
 
-
-export default Header;
+const mapDispatchToProps = {
+    loadNotePanelView
+}
+export default connect(undefined, mapDispatchToProps)(Header);

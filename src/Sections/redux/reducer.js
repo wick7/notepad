@@ -5,7 +5,7 @@ const initialState = {
     currentNote: {
         id: null,
         user_id: null,
-        text: 'No notes. Please create a note.',
+        text: '',
         created_at: null,
         updated_at: null
     },

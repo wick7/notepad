@@ -2,35 +2,36 @@ import React from 'react'
 import { connect } from 'react-redux'
 import notesSelector from './../redux/selectors'
 import { loadNotePanelView, saveNewOrExistingNote, deleteNote } from './../../Sections/redux/actions'
-import Input from './../../Components/Input'
-import Delete_View from '../../Components/Delete_View'
+import Input from '../../Components/Input'
+import DeleteView from '../../Components/DeleteView'
+import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 
 const SingleNote = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistingNote, deleteNote }) => {
 
     const currentNotePanelView = () => {
         switch (notePanelView) {
-            case 'CREATE':
+            case TYPE_INFO.CREATE:
                 return <Input
                     currentNote={currentNote}
                     notePanelView={notePanelView}
                     loadNotePanelView={loadNotePanelView}
                     saveNewOrExistingNote={saveNewOrExistingNote}
                 />
-            case 'EDIT':
+            case TYPE_INFO.EDIT:
                 return <Input
                     currentNote={currentNote}
                     notePanelView={notePanelView}
                     loadNotePanelView={loadNotePanelView}
                     saveNewOrExistingNote={saveNewOrExistingNote}
                 />
-            case 'DELETE':
-                return <Delete_View
+            case TYPE_INFO.DELETE:
+                return <DeleteView
                     currentNote={currentNote}
                     loadNotePanelView={loadNotePanelView}
                     deleteNote={deleteNote}
                 />
-            case 'CURRENT_NOTE':
+            case TYPE_INFO.CURRENT_NOTE:
                 return currentNote.text
             default:
                 return <h1>Something went wrong. Please refresh.</h1>

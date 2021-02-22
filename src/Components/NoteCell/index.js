@@ -4,7 +4,7 @@ import { loadNotePanelView } from './../../Sections/redux/actions'
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 
-const NoteCell = ({ data, loadCurrentNote, loadNotePanelView }) => {
+const NoteCell = ({ data, loadCurrentNote, loadNotePanelView, currentNote }) => {
 
     const handleSelection = (id) => {
         loadNotePanelView(TYPE_INFO.CURRENT_NOTE)
@@ -12,7 +12,10 @@ const NoteCell = ({ data, loadCurrentNote, loadNotePanelView }) => {
     }
 
     return (
-        <div className="note-cell" onClick={() => handleSelection(data.id)}>{data.text.substring(0, 20)}</div>
+        <div>
+            <div className="note-cell" style={{ background: data.id === currentNote.id ? '#c9951a' : '#1e1e1e' }} onClick={() => handleSelection(data.id)}>{data.text.substring(0, 10)}...</div>
+            <div className="divider"></div>
+        </div>
     )
 }
 

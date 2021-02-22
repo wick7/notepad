@@ -1,11 +1,10 @@
 .single-note {
-    height: 86vh;
-    width: 100%;
-    border: 1px solid white;
-    overflow: hidden;
-    overflow-y: scroll;
+    height: auto;
+    width: 82%;
+    background-color: #282828;
+    overflow-y: auto;
 }
 
 .single-note-content {
-    padding: 50px;
+    padding: 25px;
 }

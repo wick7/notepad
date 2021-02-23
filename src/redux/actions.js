@@ -2,6 +2,8 @@ import axios from 'axios'
 import notification from './../utils/notification.js'
 import TYPE_INFO from './../utils/type_info.js'
 
+const API_PREFIX = process.env.REACT_APP_STCH_API_URL_PREFIX
+
 export const SET_ALL_NOTES = 'SET_ALL_NOTES'
 export const SET_CURRENT_NOTE = 'SET_CURRENT_NOTE'
 export const SET_NOTE_PANEL_VIEW = 'SET_NOTE_PANEL_VIEW'
@@ -30,7 +32,7 @@ export const setNotePanelView = notePanelView => ({
 //Thunks
 export const loadAllNotes = () => async (dispatch) => {
     try {
-        const api = await axios.get('http://localhost:3001/notes')
+        const api = await axios.get(API_PREFIX)
 
         if (api.data) {
             dispatch(setCurrentNote(api.data[0]))
@@ -45,7 +47,7 @@ export const loadAllNotes = () => async (dispatch) => {
 
 export const loadCurrentNote = (id) => async (dispatch) => {
     try {
-        const api = await axios.get(`http://localhost:3001/notes/${id}`)
+        const api = await axios.get(`${API_PREFIX}/${id}`)
 
         dispatch(setCurrentNote(api.data[0]))
     }
@@ -65,8 +67,8 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
     const newNoteOrExisting = state.notes.notePanelView
     const noteId = state.notes.currentNote.id
 
-    let newNote = `http://localhost:3001/notes/create`
-    let existingNote = `http://localhost:3001/notes/update/${noteId}`
+    let newNote = `${API_PREFIX}/create`
+    let existingNote = `${API_PREFIX}/update/${noteId}`
 
     try {
 
@@ -89,7 +91,7 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
 export const deleteNote = (id) => async (dispatch) => {
 
     try {
-        const deletedNote = await axios.delete(`http://localhost:3001/notes/delete/${id}`)
+        const deletedNote = await axios.delete(`${API_PREFIX}/delete/${id}`)
 
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())

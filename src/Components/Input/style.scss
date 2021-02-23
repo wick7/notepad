@@ -1,4 +1,6 @@
+@import './../../variables.scss';
+
 .input {
-    background-color: black;
-    color: white;
+    background-color: $singleNoteBGColor;
+    color: $lightColor;
 }

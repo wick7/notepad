@@ -1,6 +1,5 @@
 import { combineReducers } from "redux"
-import notes from "../Sections/redux/reducer"
-
+import notes from "./../redux/reducer"
 
 const reducers = {
     notes

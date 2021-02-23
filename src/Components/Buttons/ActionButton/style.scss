@@ -1,3 +1,5 @@
+@import './../../../variables.scss';
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -6,8 +8,8 @@
 .tooltip .tooltip-content {
     visibility: hidden;
     width: 100px;
-    background-color: black;
-    color: #fff;
+    background-color: $darkColor;
+    color: $lightColor;
     font-size: 14px;
     text-align: center;
     border-radius: 5px;

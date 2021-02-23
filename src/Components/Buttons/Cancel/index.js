@@ -1,4 +1,6 @@
 import React from 'react'
+
+//Constants/Utils/Styles
 import TYPE_INFO from './../../../utils/type_info.js'
 
 const Cancel = ({ loadNotePanelView }) => {

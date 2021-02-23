@@ -1,7 +1,9 @@
+@import './../../variables.scss';
+
 .single-note {
     height: auto;
     width: 82%;
-    background-color: #282828;
+    background-color: $singleNoteBGColor;
     overflow-y: auto;
 }
 

@@ -1,8 +1,10 @@
+@import './../../variables.scss';
+
 .note-cell {
     box-sizing: border-box;
     height: auto;
     width: auto;
-    background: #1e1e1e;
+    background: $notesListingBGColor;
     padding: 28px;
     transition: 'background 5s';
     font-size: 14px;

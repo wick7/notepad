@@ -1,8 +1,14 @@
 import React from 'react'
-import ActionButton from '../../Components/Buttons/ActionButton'
-import BUTTONS_DATA from './../../utils/buttons_data.js'
 import { connect } from 'react-redux'
-import { loadNotePanelView } from '../../Sections/redux/actions'
+
+//Redux - Actions/Selectors
+import { loadNotePanelView } from './../../redux/actions'
+
+//Components
+import ActionButton from '../../Components/Buttons/ActionButton'
+
+//Constants/Styles
+import BUTTONS_DATA from './../../utils/buttons_data.js'
 import './style.scss'
 
 const Header = ({ loadNotePanelView }) => {

@@ -1,11 +1,8 @@
-$fontColor: white;
-$actionButtonColor: #666666;
+@import './variables.scss';
 
 body {
   margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'sans-serif','Segoe UI','Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $fontColor;
@@ -42,7 +39,7 @@ body {
   border-radius: 5px;
   background-color: $actionButtonColor;
   border: 4px solid $actionButtonColor;
-  color: white;
+  color: $fontColor;
   margin-left: 8px;
   background-size: contain;
   background-position: center;

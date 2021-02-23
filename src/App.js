@@ -1,4 +1,6 @@
 import React from 'react'
+
+//Components
 import Header from './Sections/Header'
 import Notes from './Sections/Notes'
 import SingleNote from './Sections/SingleNote'

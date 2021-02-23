@@ -1,20 +1,26 @@
 import TYPE_INFO from './../utils/type_info.js'
+import SaveIcon from './../assets/new.svg'
+import DeleteIcon from './../assets/delete.svg'
+import EditIcon from './../assets/edit.svg'
 
 const BUTTONS_DATA = [
     {
         key: 'create',
         type: TYPE_INFO.CREATE,
-        content: 'New Note',
+        content: SaveIcon,
+        tooltip: 'Create Note'
     },
     {
         key: 'edit',
         type: TYPE_INFO.EDIT,
-        content: 'Edit Note',
+        content: EditIcon,
+        tooltip: 'Edit Note'
     },
     {
         key: 'delete',
         type: TYPE_INFO.DELETE,
-        content: 'Delete Note',
+        content: DeleteIcon,
+        tooltip: 'Delete Note'
     },
 ]
 

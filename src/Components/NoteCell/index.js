@@ -1,6 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { loadNotePanelView } from './../../Sections/redux/actions'
+
+//Redux - Actions/Selectors
+import { loadNotePanelView } from './../../redux/actions'
+
+//Constants/Utils/Styles
 import dateTimeFormatter from './../../utils/dateTimeFormatter.js'
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'

@@ -1,6 +1,6 @@
 import axios from 'axios'
-import notification from './../../utils/notification.js'
-import TYPE_INFO from '../../utils/type_info.js'
+import notification from './../utils/notification.js'
+import TYPE_INFO from './../utils/type_info.js'
 
 export const SET_ALL_NOTES = 'SET_ALL_NOTES'
 export const SET_CURRENT_NOTE = 'SET_CURRENT_NOTE'

@@ -1,6 +1,10 @@
 import React from 'react'
+
+//Components
 import Cancel from './../Buttons/Cancel'
 import Delete from './../Buttons/Delete'
+
+//Constants/Utils/Styles
 import dateFormatter from './../../utils/dateTimeFormatter.js'
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'

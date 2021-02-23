@@ -1,10 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import notesSelector from './../redux/selectors'
-import { loadNotePanelView, saveNewOrExistingNote, deleteNote } from './../../Sections/redux/actions'
+
+//Redux - Actions/Selectors
+import notesSelector from './../../redux/selectors'
+import { loadNotePanelView, saveNewOrExistingNote, deleteNote } from './../../redux/actions'
+
+//Components
 import Input from '../../Components/Input'
 import DeleteView from '../../Components/DeleteView'
 import CurrentView from '../../Components/CurrentView'
+
+//Constants/Styles
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 

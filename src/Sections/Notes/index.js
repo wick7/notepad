@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { loadAllNotes, loadCurrentNote } from '../redux/actions'
-import notesSelector from '../redux/selectors'
+
+//Redux - Actions/Selectors
+import { loadAllNotes, loadCurrentNote } from './../../redux/actions'
+import notesSelector from './../../redux/selectors'
+
+//Components
 import NoteCell from './../../Components/NoteCell'
+
+//Constants/Styles
 import './style.scss'
 
 
@@ -10,7 +16,7 @@ const Notes = ({ allNotes, loadAllNotes, loadCurrentNote, currentNote }) => {
 
     useEffect(() => {
         loadAllNotes()
-    }, [])
+    }, [loadAllNotes])
 
     return (
         <div className="notes">

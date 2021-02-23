@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
+
+//Components
 import Cancel from './../Buttons/Cancel'
 import Save from './../Buttons/Save'
+
+//Constants/Utils/Styles
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 
@@ -26,7 +30,7 @@ const Input = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrExistin
                 className="input"
                 rows="20"
                 cols="80"
-                id="TITLE"
+                id="notes-input"
                 onChange={(e) => handleText(e)}
                 value={text}
             ></textarea>

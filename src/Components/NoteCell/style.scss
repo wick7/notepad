@@ -1,19 +1,18 @@
 .note-cell {
     box-sizing: border-box;
     height: auto;
-    width: 100%;
+    width: auto;
     background: #1e1e1e;
     padding: 28px;
     transition: 'background 5s';
+    font-size: 14px;
 }
 
-.note-content {
-    margin: 40px;
+#note-cell-date {
+    margin-top: 5px;
 }
 
 .divider {
-    position: relative;
-    left: 10%;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, .2);
 }

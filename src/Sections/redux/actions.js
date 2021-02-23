@@ -30,7 +30,7 @@ export const setNotePanelView = notePanelView => ({
 //Thunks
 export const loadAllNotes = () => async (dispatch) => {
     try {
-        const api = await axios.get('http://localhost:3001/api')
+        const api = await axios.get('http://localhost:3001/notes')
 
         if (api.data) {
             dispatch(setCurrentNote(api.data[0]))
@@ -45,7 +45,7 @@ export const loadAllNotes = () => async (dispatch) => {
 
 export const loadCurrentNote = (id) => async (dispatch) => {
     try {
-        const api = await axios.get(`http://localhost:3001/api/${id}`)
+        const api = await axios.get(`http://localhost:3001/notes/${id}`)
 
         dispatch(setCurrentNote(api.data[0]))
     }
@@ -65,8 +65,8 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
     const newNoteOrExisting = state.notes.notePanelView
     const noteId = state.notes.currentNote.id
 
-    let newNote = `http://localhost:3001/api/create`
-    let existingNote = `http://localhost:3001/api/update/${noteId}`
+    let newNote = `http://localhost:3001/notes/create`
+    let existingNote = `http://localhost:3001/notes/update/${noteId}`
 
     try {
 
@@ -89,7 +89,7 @@ export const saveNewOrExistingNote = (text) => async (dispatch, getState) => {
 export const deleteNote = (id) => async (dispatch) => {
 
     try {
-        const deletedNote = await axios.delete(`http://localhost:3001/api/delete/${id}`)
+        const deletedNote = await axios.delete(`http://localhost:3001/notes/delete/${id}`)
 
         dispatch(clearAllNotes())
         dispatch(loadAllNotes())

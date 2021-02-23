@@ -4,6 +4,7 @@ import notesSelector from './../redux/selectors'
 import { loadNotePanelView, saveNewOrExistingNote, deleteNote } from './../../Sections/redux/actions'
 import Input from '../../Components/Input'
 import DeleteView from '../../Components/DeleteView'
+import CurrentView from '../../Components/CurrentView'
 import TYPE_INFO from '../../utils/type_info.js'
 import './style.scss'
 
@@ -32,7 +33,7 @@ const SingleNote = ({ currentNote, notePanelView, loadNotePanelView, saveNewOrEx
                     deleteNote={deleteNote}
                 />
             case TYPE_INFO.CURRENT_NOTE:
-                return currentNote.text
+                return <CurrentView currentNote={currentNote} />
             default:
                 return <h1>Something went wrong. Please refresh.</h1>
         }

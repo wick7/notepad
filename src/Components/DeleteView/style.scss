@@ -1,5 +1,19 @@
-.close-view {
+.delete-view {
+    height: auto;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    text-align: center;
 }
+
+#confirm {
+    font-size: 24px;
+    color: rgb(247, 26, 26);
+    margin-bottom: 25px;
+}
+
+#date-time, #note-text {
+    margin-bottom: 25px;
+}
+

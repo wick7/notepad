@@ -21,5 +21,5 @@ export REACT_APP_STCH_API_URL_PREFIX=http://localhost:3001/notes
 To start app run:
 
 ```bash
-yarn run dev
+yarn start
 ```
